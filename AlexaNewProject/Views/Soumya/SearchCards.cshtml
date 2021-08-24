@@ -1,0 +1,82 @@
+﻿
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+@using AlexaNewProject.Models
+@{
+    Layout = null;
+    var item = Sitecore.Context.Database.GetItem("{7F31B620-066C-4498-A7F9-99315C4F1DC6}");
+}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap-themed.min.css">
+    <title>Sitecore Powered Mobile Website</title>
+</head>
+
+    <header>
+        <div class="container">
+            <div class="jumbotron text-white bg-primary">
+                <h1 class="display-3">
+                    @{
+                        var item1 = Sitecore.Context.Database.GetItem("{C50D9B83-B0E3-4506-AE33-FF110A97595E}");
+                    }
+                    <div>
+                        @Html.Sitecore().Field("Header-Title", item1)
+                    </div>
+                </h1>
+                <p class="lead"><a href="https://jss.sitecore.com/" class="text-light">Sitecore</a>@Html.Sitecore().Field("Header-SubTitle", item1)</p>
+            </div>
+        </div><!-- /.container -->
+    </header>
+@using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))
+{
+    @Html.Sitecore().FormHandler("AlexaNewProjectIndex", "searchPredicate")
+    <div class="main-search">
+        <div class="input-group">
+            @Html.TextBox("searchInput", "", new { @class = "form-control", placeholder = @Html.Sitecore().Field("HighlighterText", item1), autocomplete = "off" })
+            <div class="input-group-append">
+                <input type="submit" id="btnSearch" class="btn btn-dark" value=@Html.Sitecore().Field("ButtonLabel", item1) />
+            </div>
+        </div>
+    </div>
+    <br>
+}
+<body>
+    @if (ViewBag.searchCards != null)
+    {
+        <main role="main" class="container blog-posts">
+            <div class="row">
+                @foreach (SearchModel Postcards in (List<SearchModel>)ViewBag.searchCards)
+                {
+                    <div class="blog-post-card card col-lg-4 col-md-6">
+                        @Html.Sitecore().Field("ArticleSmallImage", Postcards.sitecoreItem, new { width = "350", height = "410" })
+                        <div class="card-body bg-light">
+                            <strong class="d-inline-block mb-2 text-success">Design</strong>
+                            <h3 class="card-title">@Postcards.ShortDescription</h3>
+                            <div class="mb-1 text-muted">@Postcards.PostedDate</div>
+                            <p>@Postcards.LongDescription</p>
+                            <a href="@Postcards.BlogURL" class="btn btn-warning btn-block">Read on</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </main>
+    }
+
+</body>
+<Footer>
+    <div class="container">
+        <div class="text-white bg-primary">
+            <p class="lead"> @Html.Sitecore().Field("Copyright", item1)</p>
+        </div>
+    </div>
+</Footer>
+</html>
+
+
+
+

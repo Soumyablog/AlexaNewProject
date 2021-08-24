@@ -1,0 +1,127 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="~/assets/css/bootstrap-themed.min.css">
+
+<main role="main" class="container blog-posts">
+    <div class="row" id="postIdBlog">
+        <!-- Begin Repeating Elements Area -->
+        <!-- Begin Repeating Element-->
+
+        @{
+            //var item = Sitecore.Context.Database.GetItem("/sitecore/content/Soumya/Home/Articles/AAA");
+            var item = Sitecore.Context.Database.GetItem("{ABCBDFDA-DA64-4413-A1B6-78AD995A3039}");
+        }
+
+        <div class="blog-post-card card col-lg-4 col-md-6">
+            <img class="card-img-top" alt="Card image cap" @Html.Sitecore().Field("ArticleSmallImage", item, new { width = "350", height = "410" })
+            <div class="card-body bg-light"><strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("Title", item)</strong>
+                <h3 class="card-title">@Html.Sitecore().Field("ShortDescription", item)</h3>
+                <div class="mb-1 text-muted"> @Html.Sitecore().Field("PostedDate", item, new { format = "MMM-yyyy-dd" }) </div>
+                <p>@Html.Sitecore().Field("LongDescription", item)</p>
+                <a href="#" class="btn btn-warning btn-block">Read on</a>
+            </div>
+        </div>
+        <!-- End Repeating Element-->
+        <!-- Begin Repeating Element-->
+        @{
+            //var item = Sitecore.Context.Database.GetItem("/sitecore/content/Soumya/Home/Articles/AAA");
+            var item2 = Sitecore.Context.Database.GetItem("{C35603B2-5E0B-49AD-AB68-CF383C38E98C}");
+        }
+    <div class="blog-post-card card col-lg-4 col-md-6">
+        <img class="card-img-top" alt="Card image cap" @Html.Sitecore().Field("ArticleSmallImage", item2,new { width = "350", height = "410" }) 
+        <div class="card-body bg-light">
+            <strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("Title", item2)</strong>
+            <h3 class="card-title">@Html.Sitecore().Field("ShortDescription", item2)</h3>
+            <div class="mb-1 text-muted"> @Html.Sitecore().Field("PostedDate", item2, new { format = "MMM-yyyy-dd" }) </div>
+            <p> @Html.Sitecore().Field("LongDescription", item2)</p>
+            <a href="#" class="btn btn-warning btn-block">Read on</a>
+        </div>
+    </div>
+        <!-- End Repeating Element-->
+        <!-- Begin Repeating Element-->
+        @{
+            //var item = Sitecore.Context.Database.GetItem("/sitecore/content/Soumya/Home/Articles/AAA");
+            var item3 = Sitecore.Context.Database.GetItem("{95FF8262-C020-4F39-9220-B8BF3292BD95}");
+        }
+    <div class="blog-post-card card col-lg-4 col-md-6">
+        <img class="card-img-top" alt="Card image cap" @Html.Sitecore().Field("ArticleSmallImage", item3,new { width = "350", height = "410" }) 
+        <div class="card-body bg-light"><strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("Title", item3)</strong>
+            <h3 class="card-title">@Html.Sitecore().Field("ShortDescription", item3)</h3>
+            <div class="mb-1 text-muted"> @Html.Sitecore().Field("PostedDate", item3, new { format = "MMM-yyyy-dd" }) </div>
+            <p> @Html.Sitecore().Field("LongDescription", item3)</p>
+            <a href="#" class="btn btn-warning btn-block">Read on</a>
+        </div>
+    </div>
+        <!-- End Repeating Element-->
+        <!-- Begin Repeating Element-->
+        @{
+            //var item = Sitecore.Context.Database.GetItem("/sitecore/content/Soumya/Home/Articles/AAA");
+            var item4 = Sitecore.Context.Database.GetItem("{9C9DB880-2F3E-4473-A010-B9CF5FC97E86}");
+        }
+    <div class="blog-post-card card col-lg-4 col-md-6">
+        <img class="card-img-top" alt="Card image cap" @Html.Sitecore().Field("ArticleSmallImage", item4,new { width = "350", height = "410" }) 
+        <div class="card-body bg-light"><strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("Title", item4)</strong>
+            <h3 class="card-title">@Html.Sitecore().Field("ShortDescription", item4)</h3>
+            <div class="mb-1 text-muted"> @Html.Sitecore().Field("PostedDate", item4, new { format = "MMM-yyyy-dd" }) </div>
+            <p> @Html.Sitecore().Field("LongDescription", item4)</p>
+            <a href="#" class="btn btn-warning btn-block">Read on</a>
+        </div>
+    </div>
+        <!-- End Repeating Element-->
+        <!-- Begin Repeating Element-->
+        @{
+            //var item = Sitecore.Context.Database.GetItem("/sitecore/content/Soumya/Home/Articles/AAA");
+            var item5 = Sitecore.Context.Database.GetItem("{D6E88F93-0DE9-4FD6-8078-FDF489AC870B}");
+        }
+    <div class="blog-post-card card col-lg-4 col-md-6">
+        <img class="card-img-top" alt="Card image cap" @Html.Sitecore().Field("ArticleSmallImage", item5,new { width = "350", height = "410" })
+        <div class="card-body bg-light"><strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("Title", item5)</strong>
+            <h3 class="card-title"> @Html.Sitecore().Field("ShortDescription", item5)</h3>
+            <div class="mb-1 text-muted"> @Html.Sitecore().Field("PostedDate", item5, new { format = "MMM-yyyy-dd" }) </div>
+            <p> @Html.Sitecore().Field("LongDescription", item5)</p>
+            <a href="#" class="btn btn-warning btn-block">Read on</a>
+        </div>
+    </div>
+        <!-- End Repeating Element-->
+        <!-- End Repeating Elements Area -->
+    </div>
+</main>
+@*<div id="resultsItem"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function () {
+    $("#btnSearch").click(function (e) {
+				// debugger;
+				e.preventDefault();
+				$.ajax({
+					type: "GET",
+					datatype: "JSON", url: "@Url.Action("DoSearch", "AlexaNewProjectIndex")",
+                    contentType: "application/json",
+                    data: {
+                        searchText: $("#SearchInput").val()
+                    },
+                    success: function (result) {
+                    var resultText = "";
+                    $('#resultsItem').text(resultText);
+                    $('#resultsItem').append("Results from  Site <BR><BR>");
+                    $(result.Results).each(function (index, item) {
+                    // each iteration
+                    var Title = item.Title;
+                    var Image = item.ArticleSmallImage;
+                    var ShortDescription = item.ShortDescription;
+                    var LongDescription = item.LongDescription;
+                    var PostedDate = item.PostedDate;
+                    //resultText += (index + 1) + " - " + Description + Title + "; " + MobileBrand + Title + "; " + Category + "; " + "<BR><BR>";
+                        resultText += '<main role="main" class="container blog-posts">' + '<div>'
+
+</script>*@

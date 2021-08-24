@@ -1,0 +1,17 @@
+@{
+    ViewBag.Title = "SOLR Search Component";
+    var item = Sitecore.Context.Database.GetItem("{C50D9B83-B0E3-4506-AE33-FF110A97595E}");
+}
+@using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))
+{
+    @Html.Sitecore().FormHandler("AlexaNewProjectIndex", "searchPredicate")
+
+    <div class="main-search">
+        <div class="input-group">
+            @Html.TextBox("searchInput", "", new { @class = "form-control", placeholder = @Html.Sitecore().Field("HighlighterText", item), autocomplete = "off" })
+            <div class="input-group-append">
+                <input type="submit" id="btnSearch" class="btn btn-dark" value=@Html.Sitecore().Field("ButtonLabel", item) />
+            </div>
+        </div>
+    </div>
+}

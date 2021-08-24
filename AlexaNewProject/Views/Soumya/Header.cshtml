@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap-themed.min.css">
+    <title>Sitecore Powered Mobile Website</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="jumbotron text-white bg-primary">
+                <h1 class="display-3">
+                    @{
+                        var item = Sitecore.Context.Database.GetItem("{AE392C5D-9844-4E08-9DAC-54A4E281910C}");
+                    }
+                    <div>
+                        @Html.Sitecore().Field("Header-Title", item)
+                    </div>
+                </h1>
+                <p class="lead"><a href="https://jss.sitecore.com/" class="text-light">Sitecore</a>  @Html.Sitecore().Field("Header-SubTitle", item)</p>
+            </div>
+        </div><!-- /.container -->
+    </header>
+</body>
+</html>
+

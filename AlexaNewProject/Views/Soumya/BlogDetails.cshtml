@@ -1,0 +1,37 @@
+﻿
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="~/assets/css/bootstrap-themed.min.css">
+
+<main role="main" class="container blog-post-detail">
+    <div class="row">
+        <div class="blog-post-detail-card card col-lg-12">
+            @*<img class="card-img-top" src="@Html.Sitecore().Field("ArticleLargeImage")" alt="Card image cap">*@
+            @Html.Sitecore().Field("ArticleLargeImage", new { w = 1110, h = 751 })
+            <div class="card-body bg-light">
+                <strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("CategoryName")</strong>
+                <h3 class="card-title">@Html.Sitecore().Field("ShortDescription")</h3>
+                <div class="mb-1 text-muted">@Html.Sitecore().Field("PostedDate", new { format = "MMM-dd-yyyy" })</div>
+                <p>
+                    @Html.Sitecore().Field("LongDescription")
+                </p>
+                <div class="blog-detail-tag-list">
+                    <span class="read-more-heading">Read more: </span>
+                    <a class="btn btn-info" href="#" role="button">Tag</a>
+                    <a class="btn btn-info" href="#" role="button">Super Extra Long Tag</a>
+                    <a class="btn btn-info" href="#" role="button">Extra Long Tag</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
